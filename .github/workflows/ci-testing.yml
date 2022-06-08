@@ -70,3 +70,11 @@ jobs:
         pip list
       shell: bash
 
+    - name: Tests
+      run: |
+        coverage run --source lit_telegram -m py.test lit_telegram tests -v --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml
+
+    - name: Statistics
+      if: success()
+      run: |
+        coverage report

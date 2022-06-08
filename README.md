@@ -39,12 +39,19 @@ app = L.LightningApp(LitApp())
 Use these instructions to install:
 
 <!---:lai-install:--->
+```
+lightning install component lightning/LAI-telegram-messenger
+```
+
+Or to build locally
 ```bash
 git clone https://github.com/PyTorchLightning/LAI-telegram-messenger
 cd LAI-telegram-messenger
 pip install -r requirements.txt
 pip install -e .
 ```
+
+
 
 ## Tests
 To run the test locally:
