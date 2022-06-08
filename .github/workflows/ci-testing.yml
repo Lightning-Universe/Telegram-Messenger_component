@@ -10,7 +10,7 @@ on:
 
 jobs:
   pytest:
-
+    environment: ci-env 
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -71,7 +71,6 @@ jobs:
       shell: bash
 
     - name: Tests
-      env:
         TEST_TELEGRAM_TOKEN: ${{ secrets.TEST_TELEGRAM_TOKEN }}
         TEST_TELEGRAM_CHAT_ID: ${{ secrets.TEST_TELEGRAM_CHAT_ID }}
       run: |
