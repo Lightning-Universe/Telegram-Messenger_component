@@ -1,8 +1,7 @@
-# lit_text_message component
-Use this component to send a text message (powered by Twilio).
+# lit_telegram component
+Use this component to send a text message in telegram.
 
-
-## 1. Install lit message 
+## 1. Install lit telegram
 First, install lit_telegram
 
 ```bash
@@ -22,5 +21,20 @@ lightning install component krishnakalyan3/lit-telegram
 To send a message, use lit-message in your app like this:
 
 ```python
+from lit_telegram import LitTelegram
+import lightning as L
 
+
+class LitApp(L.LightningFlow):
+    def __init__(self) -> None:
+        super().__init__()
+        self.lit_telegram_message = LitTelegram(
+            telegram_token='171344532:AAHDVIBa1YBrywh4eiMwD-COyw', 
+            telegram_chat_id=-12345
+        )
+
+    def run(self):
+        self.lit_telegram_message.send_text('hi ⚡ from lightning ⚡')
+
+app = L.LightningApp(LitApp())
 ```

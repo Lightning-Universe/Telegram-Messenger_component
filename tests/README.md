@@ -4,7 +4,7 @@ To run the tests:
 
 ```bash
 # go to your component folder
-cd lit_text_message
+cd lit_telegram
 
 # go to tests folder
 cd tests

@@ -1,3 +1,3 @@
-from lit_text_message.component import TextMessage
+from lit_telegram.component import LitTelegram
 
-__all__ = ["TextMessage"]
+__all__ = ["LitTelegram"]

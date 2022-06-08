@@ -3,7 +3,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="lit_text_message",
+    name="lit_telegram",
     version="0.0.0",
     description="⚡ Lightning component ⚡ generated with command: lightning init component",
     author="",

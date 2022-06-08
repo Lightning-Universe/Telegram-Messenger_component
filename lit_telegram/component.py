@@ -1,47 +1,30 @@
 import lightning as L
 from typing import List
+from telegram import Bot
 
-from twilio.rest import Client
 
-
-class TelegramMessage(L.LightningWork):
-    def __init__(self, twilio_phone: str, twilio_account_SID: str, twilio_auth_token: str) -> None:
+class LitTelegram(L.LightningWork):
+    def __init__(self, telegram_token: str, telegram_chat_id: int) -> None:
         """
-        Sends a text (sms) message. Under the hood, it's powered by Twilio. You must
-        visit Twilio to get an account id, auth token and phone number.
-
-        1. Sign up here: https://www.twilio.com/try-twilio
-        2. Visit this link to see all three items: https://console.twilio.com/
+        Sends a text message in Telegram. You must have a telegram account to get
+        telegram_token and telegram_chat_id.
 
         Arguments:
-            twilio_phone: a phone number you bought from twilio (ex: +14013150938)
-            twilio_account_SID: the ID of your account
-            twilio_auth_token: the token for your account
-
+            telegram_token: API token obtained using BotFather
+            telegram_chat_id: Chat ID obtained using Telegram Bot Raw
         """
         super().__init__()
-        self.value = 0
-        self.twilio_phone = twilio_phone
-        self.twilio_account_SID = twilio_account_SID
-        self.twilio_auth_token = twilio_auth_token
+        self.telegram_token = telegram_token
+        self.telegram_chat_id = telegram_chat_id
 
-    def send_text(self, message: str, to: List[str], image_urls: List[str] = None):
-        self.run('send_text', message, to, image_urls)
+    def send_text(self, message: str):
+        self.run('send_text', message)
 
     def run(self, action, *args, **kwargs):
         if action == 'send_text':
             self._send_text(*args, **kwargs)
     
-    def _send_text(self, message: str, to: List[str], image_urls: List[str] = None):
-        client = Client(self.twilio_account_SID, self.twilio_auth_token)
-
-        for phone in to:
-            message = client.messages \
-                .create(
-                    body=message,
-                    from_=self.twilio_phone,
-                    media_url=image_urls,
-                    to=phone
-                )
-
-            print('message sent! message id: ', message.sid)
+    def _send_text(self, message: str):
+        telegram_client = Bot(token=self.telegram_token)
+        message = telegram_client.sendMessage(chat_id=self.telegram_chat_id, text=message)
+        print('message sent! message id: ', message.message_id)
