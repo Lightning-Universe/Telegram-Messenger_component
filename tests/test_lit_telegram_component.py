@@ -12,6 +12,7 @@ def test_send_message():
         telegram_token=telegram_token, 
         telegram_chat_id=telegram_chat_id
     )
+    print(telegram_token)
 
     with io.StringIO() as buf, redirect_stdout(buf):
         msg = lit_telegram_message.send_text('hi ⚡ from lightning ⚡')
