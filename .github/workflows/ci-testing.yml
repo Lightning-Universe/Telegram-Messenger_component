@@ -70,8 +70,9 @@ jobs:
       shell: bash
 
     - name: Tests
-        TEST_TELEGRAM_TOKEN: ${{ ci-env.TEST_TELEGRAM_TOKEN }}
-        TEST_TELEGRAM_CHAT_ID: ${{ ci-env.TEST_TELEGRAM_CHAT_ID }}
+      env:
+        TEST_TELEGRAM_TOKEN: ${{ secrets.TEST_TELEGRAM_TOKEN }}
+        TEST_TELEGRAM_CHAT_ID: ${{ secrets.TEST_TELEGRAM_CHAT_ID }}
       run: |
         coverage run --source lit_telegram -m py.test lit_telegram tests -v --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml
 
