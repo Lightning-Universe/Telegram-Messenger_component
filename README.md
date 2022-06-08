@@ -6,6 +6,8 @@
 A Lightning component to send a message on Telegram
 ______________________________________________________________________
 
+![Tests](https://github.com/PyTorchLightning/LAI-telegram-messenger/actions/workflows/ci-testing.yml/badge.svg)
+
 </div>
 
 # About
@@ -50,8 +52,6 @@ cd LAI-telegram-messenger
 pip install -r requirements.txt
 pip install -e .
 ```
-
-
 
 ## Tests
 To run the test locally:
