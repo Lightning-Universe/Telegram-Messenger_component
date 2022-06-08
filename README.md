@@ -3,13 +3,13 @@
 <div align="center">
 <img src="https://pl-bolts-doc-images.s3.us-east-2.amazonaws.com/lai.png" width="200px">
 
-A Lightning component to send a message on Slack
+A Lightning component to send a message on Telegram
 ______________________________________________________________________
 
 </div>
 
 # About
-This component lets you send a message on Slack from a Lightning app.
+This component lets you send a message on Telegram from a Lightning app.
 
 ----
 
@@ -25,8 +25,8 @@ class LitApp(L.LightningFlow):
     def __init__(self) -> None:
         super().__init__()
         self.lit_telegram_message = LitTelegram(
-            telegram_token='171344532:AAHDVIBa1YBrywh4eiMwD-COyw', 
-            telegram_chat_id=-12345
+            telegram_token='<YOUR_TELEGRAM_API_TOKEN>', 
+            telegram_chat_id='<YOUR_CHAT_ID>'
         )
 
     def run(self):
@@ -46,6 +46,13 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
+## Tests
+To run the test locally:
+```
+$ From the root of this package
+pip install -r tests/requirements.txt
+pytest
+```
 
 ## Creating a Telegram account
 1. Sign up here: https://web.telegram.org/?legacy=1#/login
