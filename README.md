@@ -3,38 +3,24 @@ Use this component to send a text message (powered by Twilio).
 
 
 ## 1. Install lit message 
-First, install lit_text_message 
+First, install lit_telegram
 
 ```bash
-lightning install component lightning/lit-message
+lightning install component krishnakalyan3/lit-telegram
 ```
 
-## 2. Create a twilio account
-1. Sign up here: https://www.twilio.com/try-twilio
-2. Visit this link to see all three items: https://console.twilio.com/
+## 2. Create a telegram account
+1. Sign up here: https://web.telegram.org/?legacy=1#/login
 
-You're going to need all 3 of these items:
-![twilio creds](/images/twilio.jpg)
+2. Create new telegram bot using [BotFather](https://telegram.me/BotFather) and copy the api token.
+![create bot](/images/botfather.png)
+
+3. Obtain the chat id. Create a group invite `your_bot` and `Telegram Bot Raw` to obtain the chat id.
+![enable 2-factor auth](/images/chat_id.png)
 
 ## 3. Send message
 To send a message, use lit-message in your app like this:
 
 ```python
-from lit_text_message import TextMessage
 
-import lightning as L
-
-class LitApp(L.LightningFlow):
-    def __init__(self) -> None:
-        super().__init__()
-        self.lit_text_message = TextMessage(
-            twilio_phone='+11112223344', 
-            twilio_account_SID='AC03d87f75da114c000e38437bb2736148', 
-            twilio_auth_token='4a53b0455e40706e4e1909fe8ff81a2f'
-        )
-
-    def run(self):
-        self.lit_text_message.send_text('hi ⚡ from lightning ⚡', to=['+1999887766'])
-
-app = L.LightningApp(LitApp())
 ```

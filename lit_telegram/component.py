@@ -4,7 +4,7 @@ from typing import List
 from twilio.rest import Client
 
 
-class TextMessage(L.LightningWork):
+class TelegramMessage(L.LightningWork):
     def __init__(self, twilio_phone: str, twilio_account_SID: str, twilio_auth_token: str) -> None:
         """
         Sends a text (sms) message. Under the hood, it's powered by Twilio. You must
