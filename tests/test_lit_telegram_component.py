@@ -8,8 +8,6 @@ def test_send_message():
     telegram_token = os.environ['TEST_TELEGRAM_TOKEN']
     telegram_chat_id = os.environ['TEST_TELEGRAM_CHAT_ID']
     
-    print(os.environ)
-
     lit_telegram_message = LitTelegram(
         telegram_token=telegram_token, 
         telegram_chat_id=telegram_chat_id
