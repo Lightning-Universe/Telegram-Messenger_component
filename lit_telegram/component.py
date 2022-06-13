@@ -23,7 +23,7 @@ class LitTelegram(L.LightningFlow):
 
     def run(self, action, *args, **kwargs):
         if action == 'send_text':
-            self._send_text(*args, **kwargs)
+            return self._send_text(*args, **kwargs)
 
     def _send_text(self, message: str):
         telegram_client = Bot(token=self.telegram_token)
