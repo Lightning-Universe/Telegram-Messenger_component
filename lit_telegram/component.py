@@ -23,10 +23,9 @@ class LitTelegram(L.LightningFlow):
 
     def run(self, action, *args, **kwargs):
         if action == 'send_text':
-            return self._send_text(*args, **kwargs)
+            self._send_text(*args, **kwargs)
 
     def _send_text(self, message: str):
         telegram_client = Bot(token=self.telegram_token)
         message = telegram_client.sendMessage(chat_id=self.telegram_chat_id, text=message)
         logging.info(f'message sent! message id: {message.message_id}')
-        return message
