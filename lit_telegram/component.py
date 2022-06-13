@@ -29,3 +29,4 @@ class LitTelegram(L.LightningFlow):
         telegram_client = Bot(token=self.telegram_token)
         message = telegram_client.sendMessage(chat_id=self.telegram_chat_id, text=message)
         logging.info(f'message sent! message id: {message.message_id}')
+        return message

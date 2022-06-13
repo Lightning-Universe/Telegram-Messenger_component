@@ -13,7 +13,5 @@ def test_send_message():
         telegram_chat_id=telegram_chat_id
     )
 
-    with io.StringIO() as buf, redirect_stdout(buf):
-        msg = lit_telegram_message.send_text('hi ⚡ from lightning ⚡')
-        output = buf.getvalue()
-        assert 'message id:' in output
+    msg = lit_telegram_message.send_text('hi ⚡ from lightning ⚡')
+    assert msg.message_id is int
