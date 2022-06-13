@@ -1,7 +1,6 @@
 import os
 import io
 import logging
-from contextlib import redirect_stdout
 from lit_telegram import LitTelegram
 
 
