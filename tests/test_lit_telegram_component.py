@@ -4,10 +4,12 @@ import logging
 from contextlib import redirect_stdout
 from lit_telegram import LitTelegram
 
-LOGGER = logging.getLogger(__name__)
-
 
 def test_send_message(caplog):
+    caplog.set_level(logging.INFO)
+    logger = logging.getLogger('app')
+    logger.propagate = True  
+    
     telegram_token = os.environ['TEST_TELEGRAM_TOKEN']
     telegram_chat_id = os.environ['TEST_TELEGRAM_CHAT_ID']
 
