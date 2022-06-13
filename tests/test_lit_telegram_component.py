@@ -17,5 +17,4 @@ def test_send_message(caplog):
     )
 
     msg = lit_telegram_message.send_text('hi ⚡ from lightning ⚡')
-    output = buf.getvalue()
     assert 'message id:'  in caplog.text
