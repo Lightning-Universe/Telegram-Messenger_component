@@ -1,9 +1,10 @@
 import lightning as L
 from typing import List
 from telegram import Bot
+import logging
 
 
-class LitTelegram(L.LightningWork):
+class LitTelegram(L.LightningFlow):
     def __init__(self, telegram_token: str, telegram_chat_id: int) -> None:
         """
         Sends a text message in Telegram. You must have a telegram account to get
@@ -23,8 +24,8 @@ class LitTelegram(L.LightningWork):
     def run(self, action, *args, **kwargs):
         if action == 'send_text':
             self._send_text(*args, **kwargs)
-    
+
     def _send_text(self, message: str):
         telegram_client = Bot(token=self.telegram_token)
         message = telegram_client.sendMessage(chat_id=self.telegram_chat_id, text=message)
-        print('message sent! message id: ', message.message_id)
+        logging.info(f'message sent! message id: {message.message_id}')
