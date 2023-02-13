@@ -27,7 +27,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
+    - name: Install package & dependencies
       run: |
         pip --version
         pip install -e . -r tests/requirements.txt -U -q -f https://download.pytorch.org/whl/cpu/torch_stable.html
@@ -38,10 +38,8 @@ jobs:
       env:
         TEST_TELEGRAM_TOKEN: ${{ secrets.TEST_TELEGRAM_TOKEN }}
         TEST_TELEGRAM_CHAT_ID: ${{ secrets.TEST_TELEGRAM_CHAT_ID }}
-      run: |
-        coverage run --source lit_telegram -m pytest lit_telegram tests -v
+      run: coverage run --source lit_telegram -m pytest lit_telegram tests -v
 
     - name: Statistics
       if: success()
-      run: |
-        coverage report
+      run: coverage report

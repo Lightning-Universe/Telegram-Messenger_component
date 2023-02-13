@@ -8,7 +8,7 @@ A Lightning component to send a message on Telegram
 ______________________________________________________________________
 
 [![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white)](https://lightning.ai)
-[![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Lightning-AI/metrics/blob/master/LICENSE)
+![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Tests](https://github.com/PyTorchLightning/LAI-telegram-messenger/actions/workflows/ci-testing.yml/badge.svg)
 
 </div>
