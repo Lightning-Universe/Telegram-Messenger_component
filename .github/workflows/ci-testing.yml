@@ -30,8 +30,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip --version
-        pip install -e . -r tests/requirements.txt requirements.txt -U -q \
-          -f https://download.pytorch.org/whl/cpu/torch_stable.html
+        pip install -e . -r tests/requirements.txt -U -q -f https://download.pytorch.org/whl/cpu/torch_stable.html
         pip list
       shell: bash
 
