@@ -49,7 +49,6 @@ Or to build locally
 ```bash
 git clone https://github.com/PyTorchLightning/LAI-telegram-messenger
 cd LAI-telegram-messenger
-pip install -r requirements.txt
 pip install -e .
 ```
 
